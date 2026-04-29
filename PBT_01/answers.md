@@ -279,6 +279,9 @@ Thẻ Senmatic footer
 ![Thẻ footer](./screenshots/theSenmanticFooter.png)
 
 2. 
+Không thể tìm thấy thẻ table vì trang web sử dụng grid để hiển thị dữ liệu
+
+3. 
 Thẻ form 
 ![Thẻ form](./screenshots/theForm.png)
 input type được dùng là kiểu tel
