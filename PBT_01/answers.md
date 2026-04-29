@@ -244,6 +244,27 @@ Tuy nhiên, div vẫn có vai trò riêng. Nó phù hợp khi cần nhóm các p
 
 Tóm lại, semantic HTML không phải là tốn thời gian mà là cách viết code rõ ràng, dễ hiểu và thân thiện hơn với cả công cụ tìm kiếm lẫn người dùng.
 
+# Liệt kê lỗi của bài B3
+Lỗi 1: Dòng 1 — <!DOCTYPE> sai chuẩn — Sửa thành ```<!DOCTYPE html> ```   
+Lỗi 2: Dòng 3 — Thiếu đóng thẻ ```<title>``` — Thêm ```</title>```  
+Lỗi 3: Dòng 4 — charset viết sai "utf8" — Sửa thành "UTF-8"  
+Lỗi 4: Thiếu meta viewport — Thêm:  
+```<meta name="viewport" content="width=device-width, initial-scale=1.0">```  
+Lỗi 5: Dòng 8 — ```<h1>``` không đóng đúng — Sửa thành ```<h1>...</h1>``` 
+Lỗi 6: Dòng 12 — Thẻ ```<a>``` không đóng — Sửa thành ```</a>```  
+Lỗi 7: href="home" sai semantic link nội bộ — Sửa thành href="#home"  
+Lỗi 8: Dòng 19 — ```<img>``` thiếu dấu ngoặc kép và alt — Sửa:  
+```<img src="iphone.jpg" alt="iPhone 16 Pro">```  
+Lỗi 9: Dòng 21 — Sai thứ tự đóng thẻ ```<b>``` — Sửa thành:  
+```<strong>25.990.000đ</strong>```  
+Lỗi 10: Không dùng thẻ semantic cho ảnh — Bọc bằng:  
+```<figure> + <figcaption>```  
+Lỗi 11: Bảng thiếu ```<thead>``` và ```<tbody>``` — Thêm vào  
+Lỗi 12: Dùng ```<td>``` thay vì ```<th>``` cho header — Sửa thành <th>  
+Lỗi 13: Có 2 thẻ ```<main``` — Sai semantic — Đổi cái thứ 2 thành ```<aside>```  
+Lỗi 14: Dòng cuối — ```<p>``` không đóng — Thêm ```</p>```  
+Lỗi 15: Thiếu thuộc tính lang trong``` <html>``` — Thêm lang="vi"  
+
 
 
 
