@@ -267,4 +267,18 @@ Lỗi 15: Thiếu thuộc tính lang trong``` <html>``` — Thêm lang="vi"
 
 
 
+# Bài B4: Phân tích thegioididong.com
+1. 
+Thẻ Senmatic header
+![Thẻ header](./screenshots/theSenmanticHeader.png)
 
+Thẻ Senmatic section
+![Thẻ section](./screenshots/theSenmanticSection.png)
+
+Thẻ Senmatic footer
+![Thẻ footer](./screenshots/theSenmanticFooter.png)
+
+2. 
+Thẻ form 
+![Thẻ form](./screenshots/theForm.png)
+input type được dùng là kiểu tel
