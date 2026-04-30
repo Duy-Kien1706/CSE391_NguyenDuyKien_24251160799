@@ -139,3 +139,162 @@ OGG (ít phổ biến hơn nhưng vẫn được hỗ trợ)
     ```<img src="iphone16.jpg" alt="iPhone 16 màu đen, thiết kế hiện đại với camera kép">```
     ```<img src="decor.png" alt="trang trí phòng">```
     ```<img src="chart.png" alt="Biểu đồ doanh thu quý 1 năm 2026 tăng dần từ tháng 1 đến tháng 3">```
+
+# Phần C:
+## Câu C1 — Debug Form
+
+Lỗi 1: Dòng 2 — Input "Tên" không có ```<label for="...">```, vi phạm accessibility  
+Sửa:
+```html
+<label for="name">Tên:</label>
+<input type="text" id="name" name="name" required>
+```
+
+
+Lỗi 2: Dòng 4 — Input email thiếu label và name, chỉ dùng placeholder (không tốt cho accessibility)  
+Sửa:
+```html
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+```
+
+
+Lỗi 3: Dòng 6–7 — Hai input password không có label và không phân biệt rõ ràng  
+Sửa:
+```html
+<label for="password">Mật khẩu:</label>
+<input type="password" id="password" name="password" required>
+
+<label for="confirm-password">Nhập lại mật khẩu:</label>
+<input type="password" id="confirm-password" name="confirm_password" required>
+```
+
+
+Lỗi 4: Dòng 9 — Input "Phone" dùng type="text" không đúng semantic  
+Sửa:
+```html
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone" required>
+```
+
+
+Lỗi 5: Dòng 9 — Không nên dùng value cố định cho số điện thoại  
+Sửa:
+```html
+<input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+```
+
+
+Lỗi 6: Dòng 11 — ```<select>``` không có label  
+Sửa:
+```html
+<label for="city">Thành phố:</label>
+<select id="city" name="city" required>
+    <option value="">--Chọn--</option>
+    <option value="hn">Hà Nội</option>
+    <option value="hcm">TP.HCM</option>
+</select>
+```
+
+
+Lỗi 7: Dòng 16 — Checkbox "đồng ý điều khoản" thiếu input checkbox  
+Sửa:
+```html
+<input type="checkbox" id="terms" name="terms" required>
+<label for="terms">Tôi đồng ý điều khoản</label>
+```
+
+
+Lỗi 8: Dòng 19 — ```<form>``` thiếu action và method (best practice)  
+Sửa:
+```html
+<form action="/submit" method="post">
+```
+
+
+Form hoàn chỉnh sau khi sửa:
+
+```html
+<form action="/submit" method="post">
+    <label for="name">Tên:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Mật khẩu:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirm-password">Nhập lại mật khẩu:</label>
+    <input type="password" id="confirm-password" name="confirm_password" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+
+    <label for="city">Thành phố:</label>
+    <select id="city" name="city" required>
+        <option value="">--Chọn--</option>
+        <option value="hn">Hà Nội</option>
+        <option value="hcm">TP.HCM</option>
+    </select>
+
+    <input type="checkbox" id="terms" name="terms" required>
+    <label for="terms">Tôi đồng ý điều khoản</label>
+
+    <input type="submit" value="Gửi">
+</form>
+```
+
+## Câu C2 — Thiết kế chiến lược Validation
+
+1. Pattern regex
+
+CMND/CCCD (đúng 12 chữ số):
+```html
+<input type="text" name="cccd" pattern="^\d{12}$" required>
+```
+
+Số tài khoản (10–15 chữ số):
+```html
+<input type="text" name="account" pattern="^\d{10,15}$" required>
+```
+
+Email:
+```html
+<input type="email" name="email" required>
+```
+
+PIN (6 chữ số, không hiển thị):
+```html
+<input type="password" name="pin" pattern="^\d{6}$" required>
+```
+
+
+
+2. HTML5 validation có đủ an toàn cho ứng dụng ngân hàng không?
+
+Không đủ an toàn.
+
+Lý do:
+ HTML5 validation chỉ chạy ở phía trình duyệt (frontend)
+ Người dùng có thể tắt validation hoặc sửa code bằng DevTools
+ Hacker có thể gửi request trực tiếp lên server (bỏ qua hoàn toàn HTML)
+
+=> Vì vậy, HTML5 validation chỉ giúp kiểm tra nhanh cho người dùng, KHÔNG đảm bảo bảo mật
+
+
+
+3. 3 loại validation HTML5 KHÔNG làm được (phải dùng JavaScript)
+
+ So sánh nhiều trường (ví dụ: password và confirm password phải giống nhau)
+ Kiểm tra logic phức tạp (ví dụ: CMND có tồn tại trong hệ thống hay không)
+ Validation theo điều kiện (ví dụ: nếu chọn A thì bắt buộc nhập thêm B)
+
+
+
+4. 2 rủi ro bảo mật nếu chỉ validate frontend
+
+ Người dùng gửi dữ liệu sai hoặc độc hại (ví dụ: chèn script → XSS)
+ Hacker bypass validation và gửi dữ liệu giả trực tiếp lên server (gây lỗi hệ thống hoặc đánh cắp dữ liệu)
+
+=> Kết luận: Luôn phải validate lại ở backend (server-side validation)
