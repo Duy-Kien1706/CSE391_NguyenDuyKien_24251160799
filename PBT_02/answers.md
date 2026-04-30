@@ -298,3 +298,5 @@ Lý do:
  Hacker bypass validation và gửi dữ liệu giả trực tiếp lên server (gây lỗi hệ thống hoặc đánh cắp dữ liệu)
 
 => Kết luận: Luôn phải validate lại ở backend (server-side validation)
+
+# Link video thuyết trình: https://drive.google.com/file/d/14ZsNcpQBMFv8QnAY1ETMMzktLnoHCuF2/view?usp=sharing
