@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/portfolio.css">
 </head>
 
 <body>
     <header>
         <div class="logo">Nguyễn Duy Kiên</div>
 
-        <!-- Mobile toggle -->
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰</label>
 
@@ -77,7 +77,7 @@
 
             <div class="skills-grid">
 
-                <!-- HTML -->
+
                 <div class="skill-item">
 
                     <div class="skill-top">
@@ -91,7 +91,7 @@
 
                 </div>
 
-                <!-- CSS -->
+
                 <div class="skill-item">
 
                     <div class="skill-top">
@@ -105,7 +105,6 @@
 
                 </div>
 
-                <!-- JavaScript -->
                 <div class="skill-item">
 
                     <div class="skill-top">
@@ -119,7 +118,6 @@
 
                 </div>
 
-                <!-- React -->
                 <div class="skill-item">
 
                     <div class="skill-top">
@@ -138,64 +136,106 @@
         </div>
 
     </section>
-    </div>
 
-    <section id="portfolio" class="portfolio-section">
 
-        <div class="container">
+<section id="portfolio" class="portfolio-section">
 
-            <h2>My Portfolio</h2>
+    <div class="container">
 
-            <div class="portfolio-filters">
+        <h2>My Portfolio</h2>
 
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Web</button>
-                <button class="filter-btn">Mobile</button>
-                <button class="filter-btn">Design</button>
+
+        <div class="portfolio-filters">
+
+            <button class="filter-btn " style = "background-color: var(--color-primary);    color: white">All</button>
+            <button class="filter-btn">Web</button>
+            <button class="filter-btn">Mobile</button>
+            <button class="filter-btn">Design</button>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+
+            <div class="portfolio-item">
+
+                <img src="https://picsum.photos/500/400?random=1" alt="Project 1">
+
+                <div class="portfolio-overlay">
+
+                    <h3>E-Commerce Website</h3>
+                    <p>React + Node.js</p>
+
+                </div>
 
             </div>
 
-            <div class="portfolio-grid">
 
-                <!-- Item 1 -->
-                <div class="portfolio-item">
+            <div class="portfolio-item">
 
-                    <img src="https://picsum.photos/500/400?random=1" alt="Project 1">
+                <img src="https://picsum.photos/500/400?random=2" alt="Project 2">
 
-                </div>
+                <div class="portfolio-overlay">
 
-                <!-- Item 2 -->
-                <div class="portfolio-item">
-
-                    <img src="https://picsum.photos/500/400?random=2" alt="Project 2">
+                    <h3>Mobile Banking App</h3>
+                    <p>Flutter UI</p>
 
                 </div>
 
-                <!-- Item 3 -->
-                <div class="portfolio-item">
+            </div>
 
-                    <img src="https://picsum.photos/500/400?random=3" alt="Project 3">
 
-                </div>
+            <div class="portfolio-item">
 
-                <!-- Item 4 -->
-                <div class="portfolio-item">
+                <img src="https://picsum.photos/500/400?random=3" alt="Project 3">
 
-                    <img src="https://picsum.photos/500/400?random=4" alt="Project 4">
+                <div class="portfolio-overlay">
 
-                </div>
-
-                <!-- Item 5 -->
-                <div class="portfolio-item">
-
-                    <img src="https://picsum.photos/500/400?random=5" alt="Project 5">
+                    <h3>Portfolio Design</h3>
+                    <p>UI/UX Design</p>
 
                 </div>
 
-                <!-- Item 6 -->
-                <div class="portfolio-item">
+            </div>
 
-                    <img src="https://picsum.photos/500/400?random=6" alt="Project 6">
+  
+            <div class="portfolio-item">
+
+                <img src="https://picsum.photos/500/400?random=4" alt="Project 4">
+
+                <div class="portfolio-overlay">
+
+                    <h3>Dashboard System</h3>
+                    <p>Vue + Firebase</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-item">
+
+                <img src="https://picsum.photos/500/400?random=5" alt="Project 5">
+
+                <div class="portfolio-overlay">
+
+                    <h3>Food Delivery App</h3>
+                    <p>React Native</p>
+
+                </div>
+
+            </div>
+
+    
+            <div class="portfolio-item">
+
+                <img src="https://picsum.photos/500/400?random=6" alt="Project 6">
+
+                <div class="portfolio-overlay">
+
+                    <h3>Landing Page</h3>
+                    <p>HTML + CSS</p>
 
                 </div>
 
@@ -203,7 +243,9 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 </body>
 
 </html>

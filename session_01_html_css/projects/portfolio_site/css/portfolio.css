@@ -1,6 +1,6 @@
 .portfolio-section{
     padding: 100px 20px;
-    background: #0f172a;
+    background: #ffff;
 }
 
 .portfolio-section h2{
@@ -9,7 +9,7 @@
     margin-bottom: 40px;
 }
 
-/* FILTER BUTTONS */
+
 
 .portfolio-filters{
     display: flex;
@@ -22,9 +22,9 @@
 
 .filter-btn{
     background: transparent;
-    border: 2px solid #38bdf8;
+    border: 2px solid var(--color-primary);
 
-    color: white;
+    color: var(--color-primary);
 
     padding: 10px 24px;
 
@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 
-/* GRID */
+
 
 .portfolio-grid{
     display: grid;
@@ -46,6 +46,7 @@
 .portfolio-item{
     border-radius: 16px;
     overflow: hidden;
+    border-radius: 16px;
 }
 
 .portfolio-item img{
@@ -53,9 +54,62 @@
     aspect-ratio: 4/3;
 
     object-fit: cover;
-
+    
     display: block;
+
+    transition: transform 0.4s ease;
 }
+
+.portfolio-item:hover img{
+    transform: scale(1.1);
+}
+
+
+
+.portfolio-overlay{
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(15,23,42,0.95) 0%,
+        rgba(15,23,42,0.6) 50%,
+        transparent 100%
+    );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 24px;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+
+
+.portfolio-item:hover .portfolio-overlay{
+    opacity: 1;
+}
+
+
+
+.portfolio-overlay h3{
+    color: white;
+    margin-bottom: 8px;
+}
+
+.portfolio-overlay p{
+    color: #cbd5e1;
+}
+
+
 
 /* TABLET */
 
