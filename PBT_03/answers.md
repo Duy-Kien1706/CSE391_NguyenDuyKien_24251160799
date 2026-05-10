@@ -182,4 +182,168 @@ Rule mạnh nhất là: #main-price { color: red; } vì (1,0,0)
 element sẽ có màu: **orange** vì inline style > ID selector
 
 4. Nếu rule A thêm important    
-element sẽ có màu: **black** vì !important > inline style thường > ID > class > tag
+element sẽ có màu: **black** vì !important > inline style thường > ID > class > tag  
+
+# Phần B:  
+## Bài B1: Liệt kê selector đã dùng trong file profile.html
+**Các loại selector đã sử dụng**
+
+1. Element selector
+- body
+- table
+- footer
+
+2. ID selector
+- #main-header
+
+3. Class selector
+- .profile-section
+- .active
+
+4. Descendant selector
+- nav a
+
+5. Pseudo-class selector
+- a:hover
+- tr:nth-child(even)
+- tr:hover
+
+## Bài B2:  
+### Phần 1 — Content-box vs Border-box
+
+#### Hộp 1 (content-box)
+
+- width khai báo: 300px
+- padding: 20px x 2 = 40px
+- border: 5px x 2 = 10px
+
+Chiều rộng thực tế:
+
+300 + 40 + 10 = 350px
+![content box](./screenshots/B2_contentBox.png)
+
+#### Hộp 2 (border-box)
+
+Chiều rộng thực tế:
+
+300px
+
+Vì padding và border đã được tính bên trong width.
+![border box](./screenshots/B2_borderBox.png)
+
+#### Giải thích sự khác biệt
+
+- content-box:
+width chỉ tính phần content.
+Padding và border sẽ cộng thêm vào kích thước thật.
+
+- border-box:
+width bao gồm luôn content + padding + border.
+Kích thước thật giữ nguyên đúng bằng width khai báo.
+
+---
+
+### Phần 2 — Layout 3 cột
+
+#### Không dùng border-box
+
+Tổng thực tế:
+
+- Sidebar:
+250 + 30 + 4 = 284px
+
+- Content:
+500 + 40 + 4 = 544px
+
+- Ads:
+250 + 30 + 4 = 284px
+
+Tổng:
+
+284 + 544 + 284 = 1112px
+
+=> Bị vượt quá container 1000px.
+![Bị tràn](./screenshots/B2_KhongDungborderBox.png)
+
+### Có dùng border-box
+
+Tổng:
+
+250 + 500 + 250 = 1000px
+
+=> Vừa đúng container.
+![Vừa container](./screenshots/B2_CoDungborderBox.png)
+
+
+## bài B3: 10 Rules + Specificity Score
+
+1. p  
+Specificity: 0,0,1
+
+2. .text  
+Specificity: 0,1,0
+
+3. .highlight  
+Specificity: 0,1,0
+
+4. p.text  
+Specificity: 0,1,1
+
+5. p.highlight  
+Specificity: 0,1,1
+
+6. .text.highlight  
+Specificity: 0,2,0
+
+7. #demo  
+Specificity: 1,0,0
+
+8. p#demo  
+Specificity: 1,0,1
+
+9. #demo.text  
+Specificity: 1,1,0
+
+10. p#demo.text.highlight  
+Specificity: 1,2,1
+
+---
+
+**Element cuối cùng hiển thị màu gì?**
+
+Màu cuối cùng là: gold
+
+Vì selector:
+
+p#demo.text.highlight
+
+có specificity cao nhất:
+
+1,2,1
+
+nên nó ghi đè tất cả các rules khác.  
+![màu element](./screenshots/B3_MauElement.png)
+
+---
+
+**Nếu thay đổi thứ tự CSS rules thì sao?**
+
+- Nếu specificity khác nhau:
+Kết quả KHÔNG đổi.
+
+Ví dụ:
+#demo vẫn thắng .text
+dù viết trước hay sau.
+
+- Nếu specificity bằng nhau:
+Rule viết SAU sẽ thắng.
+
+Ví dụ:
+.text và .highlight
+đều có specificity:
+0,1,0
+
+nên selector viết cuối cùng sẽ được áp dụng.
+
+
+
