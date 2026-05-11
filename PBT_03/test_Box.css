@@ -1,0 +1,33 @@
+body {
+    font-family: Arial;
+    padding: 30px;
+}
+
+.box{
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    margin-bottom: 30px;
+    background: lightblue;
+}
+
+.content-box{
+    box-sizing: content-box;
+}
+
+.border-box{
+    box-sizing: border-box;
+    background: lightblue;
+}
+
+.collapse1{
+    height: 100px;
+    background: pink;
+    margin-bottom: 50px;
+}
+
+.collapse2{
+    height: 100px;
+    background: orange;
+    margin-bottom: 80px;
+}
