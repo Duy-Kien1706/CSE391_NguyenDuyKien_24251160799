@@ -38,7 +38,7 @@ nearest positioned ancestor = phần tử tổ tiên gần nhất có `position`
 
 ### Bố cục:
 
-![Th1](./screenshots/TH1_A2.png)
+![Th1](./screenshots/A2/TH1_A2.png)
 
 → 1 hàng, 4 cột bằng nhau.
 
@@ -72,7 +72,7 @@ Có 6 item nên:
 
 ### Bố cục:
 
-![Th2](./screenshots/TH2_A2.png)
+![Th2](./screenshots/A2/TH2_A2.png)
 
 ---
 
@@ -95,7 +95,7 @@ Có 3 item:
 
 ### Bố cục:
 
-![Th3](./screenshots/TH3_A2.png)
+![Th3](./screenshots/A2/TH3_A2.png)
 
 → 1 hàng ngang, khoảng cách đều nhau.
 
@@ -121,7 +121,7 @@ Có 3 item nên mỗi item nằm trên 1 cột.
 
 ### Bố cục:
 
-![Th4](./screenshots/TH4_A2.png)
+![Th4](./screenshots/A2/TH4_A2.png)
 
 → 1 hàng, 3 cột.
 
@@ -148,7 +148,7 @@ Cách sắp xếp:
 
 ### Bố cục:
 
-![Th5](./screenshots/TH5_A2.png)
+![Th5](./screenshots/A2/TH5_A2.png)
 
 → Tổng cộng:
 - 3 hàng
