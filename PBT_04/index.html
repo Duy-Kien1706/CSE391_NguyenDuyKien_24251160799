@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Fix Flexbox Errors</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        /* ================================================= */
+        /* LỖI 1 */
+        /* ================================================= */
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            width: 30%;
+            margin: 1.5%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card h3 {
+            font-size: 18px;
+        }
+
+        .card .btn {
+            padding: 10px;
+            background: blue;
+            color: white;
+            text-align: center;
+        }
+
+        /* ===== FIX ===== */
+
+        .fixed-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fixed-card p {
+            flex: 1;
+        }
+
+        /* ================================================= */
+        /* LỖI 2 */
+        /* ================================================= */
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            border: 3px solid black;
+            margin-bottom: 50px;
+        }
+
+        .hero-content {
+            background: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* ===== FIX ===== */
+
+        .hero-fixed {
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ================================================= */
+        /* LỖI 3 */
+        /* ================================================= */
+
+        .layout {
+            display: flex;
+            margin-bottom: 50px;
+            border: 2px solid black;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: lightgray;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            background: lightblue;
+            padding: 20px;
+        }
+
+        /* ===== FIX ===== */
+
+        .sidebar-fixed {
+            flex-shrink: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================================= -->
+    <!-- LỖI 1 -->
+    <!-- ================================================= -->
+
+    <h1>Lỗi 1 - BEFORE</h1>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150">
+            <h3>Sản phẩm 1</h3>
+            <p>Mô tả ngắn.</p>
+            <div class="btn">Mua</div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150">
+            <h3>Sản phẩm 2</h3>
+            <p>
+                Đây là mô tả rất dài rất dài rất dài rất dài
+                khiến card cao hơn các card khác.
+            </p>
+            <div class="btn">Mua</div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150">
+            <h3>Sản phẩm 3</h3>
+            <p>Mô tả trung bình.</p>
+            <div class="btn">Mua</div>
+        </div>
+
+    </div>
+
+    <h1>Lỗi 1 - AFTER</h1>
+
+    <div class="card-container">
+
+        <div class="card fixed-card">
+            <img src="https://via.placeholder.com/300x150">
+            <h3>Sản phẩm 1</h3>
+            <p>Mô tả ngắn.</p>
+            <div class="btn">Mua</div>
+        </div>
+
+        <div class="card fixed-card">
+            <img src="https://via.placeholder.com/300x150">
+            <h3>Sản phẩm 2</h3>
+            <p>
+                Đây là mô tả rất dài rất dài rất dài rất dài
+                khiến card cao hơn các card khác.
+            </p>
+            <div class="btn">Mua</div>
+        </div>
+
+        <div class="card fixed-card">
+            <img src="https://via.placeholder.com/300x150">
+            <h3>Sản phẩm 3</h3>
+            <p>Mô tả trung bình.</p>
+            <div class="btn">Mua</div>
+        </div>
+
+    </div>
+
+    <!-- ================================================= -->
+    <!-- LỖI 2 -->
+    <!-- ================================================= -->
+
+    <h1>Lỗi 2 - BEFORE</h1>
+
+    <div class="hero">
+
+        <div class="hero-content">
+            <h2>WELCOME</h2>
+            <p>Nội dung vẫn dính góc trái trên</p>
+        </div>
+
+    </div>
+
+    <h1>Lỗi 2 - AFTER</h1>
+
+    <div class="hero hero-fixed">
+
+        <div class="hero-content">
+            <h2>WELCOME</h2>
+            <p>Đã nằm giữa màn hình</p>
+        </div>
+
+    </div>
+
+    <!-- ================================================= -->
+    <!-- LỖI 3 -->
+    <!-- ================================================= -->
+
+    <h1>Lỗi 3 - BEFORE</h1>
+
+    <div class="layout">
+
+        <div class="sidebar">
+            SIDEBAR
+        </div>
+
+        <div class="content">
+            Nội dung rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+        </div>
+
+    </div>
+
+    <h1>Lỗi 3 - AFTER</h1>
+
+    <div class="layout">
+
+        <div class="sidebar sidebar-fixed">
+            SIDEBAR
+        </div>
+
+        <div class="content">
+            Nội dung rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+            rất dài rất dài rất dài rất dài rất dài
+        </div>
+
+    </div>
+
+</body>
+</html>

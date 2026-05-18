@@ -153,4 +153,212 @@ Cách sắp xếp:
 → Tổng cộng:
 - 3 hàng
 - 3 cột
-- Item 7 nằm ở hàng cuối, cột đầu tiên.
+- Item 7 nằm ở hàng cuối, cột đầu tiên.  
+
+
+# PHẦN C — SUY LUẬN (20 điểm)
+
+## Câu C1 (10đ) — Flexbox vs Grid
+
+### 1. Navigation bar ngang (logo + menu + buttons)
+
+**Dùng:** `Flexbox`
+
+**Giải thích:**  
+Navbar là layout 1 chiều theo hàng ngang.
+
+```css
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+```
+
+---
+
+### 2. Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước)
+
+**Dùng:** `Grid`
+
+**Giải thích:**  
+Đây là layout dạng lưới 2 chiều.
+
+```css
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+```
+
+---
+
+### 3. Layout blog: main content + sidebar
+
+**Dùng:** `Flexbox`
+
+**Giải thích:**  
+Chỉ cần chia 2 cột ngang.
+
+```css
+.layout{
+    display: flex;
+}
+
+.content{
+    flex: 1;
+}
+
+.sidebar{
+    width: 300px;
+}
+```
+
+---
+
+### 4. Footer với 4 cột thông tin
+
+**Dùng:** `Grid`
+
+**Giải thích:**  
+Grid giúp chia cột đều và responsive tốt.
+
+```css
+.footer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+```
+
+---
+
+### 5. Card sản phẩm
+
+**Dùng:** `Flexbox`
+
+**Giải thích:**  
+Sắp xếp nội dung theo chiều dọc và đẩy nút xuống đáy.
+
+```css
+.card{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    margin-top: auto;
+}
+```
+
+---
+
+# Câu C2 (10đ) — Debug Flexbox
+
+# Lỗi 1 — Cards không đều chiều cao
+
+## Nguyên nhân
+
+Text trong mỗi card dài ngắn khác nhau nên chiều cao card khác nhau.
+
+## Code sửa
+
+```css
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 30%;
+    margin: 1.5%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card img{
+    width: 100%;
+}
+
+.card h3{
+    font-size: 18px;
+}
+
+.card .btn{
+    padding: 10px;
+    margin-top: auto;
+}
+```
+
+## Trước khi sửa
+
+![Trước](./screenshots/C2/Loi1Before.png)
+
+## Sau khi sửa
+![Sau](./screenshots/C2/Loi1After.png)
+
+---
+
+# Lỗi 2 — Item không nằm giữa màn hình
+
+## Nguyên nhân
+
+Container có display:flex nhưng chưa căn giữa ngang và dọc.
+
+## Code sửa
+
+```css
+.hero{
+    height: 100vh;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content{
+    text-align: center;
+}
+```
+
+## Trước khi sửa
+
+![Trước](./screenshots/C2/Loi2Before.png)
+
+## Sau khi sửa
+![Sau](./screenshots/C2/Loi2After.png)
+
+---
+
+# Lỗi 3 — Sidebar bị co lại
+
+## Nguyên nhân
+
+Flexbox mặc định cho phép item bị co lại.
+
+## Code sửa
+
+```css
+.layout{
+    display: flex;
+}
+
+.sidebar{
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.content{
+    flex: 1;
+}
+```
+## Trước khi sửa
+
+![Trước](./screenshots/C2/Loi3Before.png)
+
+## Sau khi sửa
+![Sau](./screenshots/C2/Loi3After.png)
+
+
