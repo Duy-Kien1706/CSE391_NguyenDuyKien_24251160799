@@ -385,4 +385,413 @@ sass style.scss style.css
 → được chuyển thành
 - File `style.css`
 
-Trình duyệt sẽ đọc file `.css`.
+Trình duyệt sẽ đọc file `.css`.  
+
+
+
+
+# PHẦN C — PHÂN TÍCH (20 điểm)
+
+# Câu C1 (10đ) — Phân tích trang web thực
+
+## Website được chọn: YouTube
+
+Website: https://www.youtube.com
+
+---
+
+# 1. Mobile (375px)
+
+## Wireframe bố cục
+
+```text
+┌─────────────────────┐
+│ ☰  YouTube   🔍 👤 │
+├─────────────────────┤
+│     Video 1         │
+├─────────────────────┤
+│     Video 2         │
+├─────────────────────┤
+│     Video 3         │
+├─────────────────────┤
+│ Home Shorts Sub ... │
+└─────────────────────┘
+```
+
+## Phân tích
+
+### Navigation thay đổi thế nào?
+- Menu sidebar bị ẩn
+- Xuất hiện icon Hamburger ☰
+- Search bar bị thu nhỏ thành icon kính lúp
+- Chỉ giữ các icon quan trọng
+
+### Lưới content thay đổi mấy cột?
+- 1 cột video
+
+### Elements nào bị ẩn trên mobile?
+- Sidebar đầy đủ
+- Một số nút chức năng phụ
+- Danh mục mở rộng bên trái
+
+### Font size có thay đổi không?
+- Có
+- Font nhỏ hơn desktop để tiết kiệm không gian
+
+---
+
+# 2. Tablet (768px)
+
+## Wireframe bố cục
+
+```text
+┌──────────────────────────────────┐
+│ ☰ YouTube     Search        👤  │
+├──────────┬───────────────────────┤
+│ Sidebar  │ Video 1   Video 2    │
+│ nhỏ      ├───────────────────────┤
+│          │ Video 3   Video 4    │
+└──────────┴───────────────────────┘
+```
+
+## Phân tích
+
+### Navigation thay đổi thế nào?
+- Sidebar thu gọn thành icon
+- Search bar dài hơn
+- Vẫn giữ hamburger menu
+
+### Lưới content thay đổi mấy cột?
+- 2 cột video
+
+### Elements nào bị ẩn?
+- Một số text trong sidebar
+- Chỉ hiện icon menu
+
+### Font size có thay đổi không?
+- Có tăng nhẹ so với mobile
+
+---
+
+# 3. Desktop (1440px)
+
+## Wireframe bố cục
+
+```text
+┌────────────────────────────────────────────────────┐
+│ ☰ YouTube      Search Bar                Icons 👤 │
+├──────────────┬─────────────────────────────────────┤
+│ Sidebar      │ Video1  Video2  Video3             │
+│ đầy đủ       ├─────────────────────────────────────┤
+│ Home         │ Video4  Video5  Video6             │
+│ Shorts       ├─────────────────────────────────────┤
+│ Subscribe    │ Video7  Video8  Video9             │
+└──────────────┴─────────────────────────────────────┘
+```
+
+## Phân tích
+
+### Navigation thay đổi thế nào?
+- Sidebar hiển thị đầy đủ
+- Search bar mở rộng
+- Có thêm nhiều icon chức năng
+
+### Lưới content thay đổi mấy cột?
+- 3–5 cột tùy độ rộng màn hình
+
+### Elements nào bị ẩn?
+- Hầu như không ẩn nhiều thành phần
+
+### Font size có thay đổi không?
+- Font lớn hơn mobile
+- Khoảng cách thoáng hơn
+
+---
+
+# 4. Media Queries tìm được trong DevTools
+
+## Media Query 1
+
+```css
+@media (max-width: 656px) {
+    #guide {
+        display: none;
+    }
+}
+```
+
+### Ý nghĩa
+- Khi màn hình nhỏ hơn 656px:
+- Sidebar sẽ bị ẩn
+
+---
+
+## Media Query 2
+
+```css
+@media (min-width: 1000px) {
+    .video-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+```
+
+### Ý nghĩa
+- Desktop sẽ hiển thị nhiều cột video hơn
+
+---
+
+# Nhận xét chung
+
+YouTube sử dụng:
+- Responsive Grid
+- Flexbox
+- Media Queries
+- Sidebar adaptive
+- Mobile-first responsive design
+
+---
+
+# Câu C2 (10đ) — Thiết kế Responsive Strategy
+
+# 1. Wireframe Mobile
+
+## Đặc điểm
+- Hero image full width
+- Grid món ăn: 1 cột
+- Form đặt bàn đặt phía dưới gallery
+- Google Maps đặt dưới form
+- Ẩn bớt text mô tả dài để tiết kiệm không gian
+
+```text
+┌─────────────────────┐
+│ LOGO      ☎ Hotline │
+├─────────────────────┤
+│                     │
+│     HERO IMAGE      │
+│                     │
+├─────────────────────┤
+│ Ảnh món ăn 1        │
+├─────────────────────┤
+│ Ảnh món ăn 2        │
+├─────────────────────┤
+│ Ảnh món ăn 3        │
+├─────────────────────┤
+│ Ảnh món ăn 4        │
+├─────────────────────┤
+│ Ảnh món ăn 5        │
+├─────────────────────┤
+│ Ảnh món ăn 6        │
+├─────────────────────┤
+│     FORM ĐẶT BÀN    │
+│ [Ngày]              │
+│ [Giờ]               │
+│ [Số người]          │
+│ [Ghi chú]           │
+│ [Đặt bàn]           │
+├─────────────────────┤
+│    GOOGLE MAPS      │
+├─────────────────────┤
+│       FOOTER        │
+└─────────────────────┘
+```
+
+---
+
+# 2. Wireframe Tablet
+
+## Đặc điểm
+- Grid món ăn: 2 cột
+- Form và Google Maps xếp dọc
+- Hero image vẫn full width
+- Header có khoảng cách rộng hơn
+
+```text
+┌──────────────────────────────────┐
+│ LOGO                 ☎ Hotline   │
+├──────────────────────────────────┤
+│                                  │
+│            HERO IMAGE            │
+│                                  │
+├──────────────────────────────────┤
+│ Ảnh 1            │ Ảnh 2         │
+├──────────────────┼────────────────┤
+│ Ảnh 3            │ Ảnh 4         │
+├──────────────────┼────────────────┤
+│ Ảnh 5            │ Ảnh 6         │
+├──────────────────────────────────┤
+│         FORM ĐẶT BÀN             │
+├──────────────────────────────────┤
+│          GOOGLE MAPS             │
+├──────────────────────────────────┤
+│             FOOTER               │
+└──────────────────────────────────┘
+```
+
+---
+
+# 3. Wireframe Desktop
+
+## Đặc điểm
+- Layout chia 2 cột chính
+- Grid món ăn: 3 cột
+- Form đặt bàn và Maps đặt cạnh nhau
+- Có thể thêm sidebar thông tin khuyến mãi / giờ mở cửa
+
+```text
+┌────────────────────────────────────────────────────┐
+│ LOGO                             ☎ Hotline         │
+├────────────────────────────────────────────────────┤
+│                                                    │
+│                    HERO IMAGE                      │
+│                                                    │
+├────────────────────────────────────────────────────┤
+│ Ảnh 1        │ Ảnh 2        │ Ảnh 3               │
+├──────────────┼──────────────┼──────────────────────┤
+│ Ảnh 4        │ Ảnh 5        │ Ảnh 6               │
+├────────────────────────────────────────────────────┤
+│                                                    │
+│ FORM ĐẶT BÀN        │        GOOGLE MAPS          │
+│                     │                              │
+├────────────────────────────────────────────────────┤
+│ Sidebar: Khuyến mãi / Giờ mở cửa (optional)       │
+├────────────────────────────────────────────────────┤
+│                     FOOTER                         │
+└────────────────────────────────────────────────────┘
+```
+
+---
+
+# 4. CSS Skeleton (Mobile-First)
+
+## HTML Structure
+
+```html
+<div class="container">
+
+    <header class="header">
+        Header
+    </header>
+
+    <section class="hero">
+        Hero
+    </section>
+
+    <section class="gallery">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </section>
+
+    <div class="booking-map">
+
+        <section class="booking">
+            Form đặt bàn
+        </section>
+
+        <section class="map">
+            Google Maps
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        Footer
+    </footer>
+
+</div>
+```
+
+---
+
+## CSS Layout Skeleton
+
+```css
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MOBILE FIRST */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.header,
+.hero,
+.booking,
+.map,
+.footer {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.item {
+    height: 150px;
+    border: 1px solid black;
+}
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .booking-map {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+}
+```
+
+---
+
+# 5. Giải thích Responsive Strategy
+
+## Mobile
+ Ưu tiên cuộn dọc
+ Grid 1 cột
+ Form đặt dưới gallery
+
+## Tablet
+ Gallery 2 cột
+ Maps dưới form
+
+## Desktop
+ Gallery 3 cột
+ Form và Maps nằm cạnh nhau
+ Có thể thêm sidebar
+
+
