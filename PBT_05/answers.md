@@ -787,7 +787,7 @@ YouTube sử dụng:
 
 ## Tablet
  Gallery 2 cột
- Maps dưới form
+ Maps dưới form 
 
 ## Desktop
  Gallery 3 cột
