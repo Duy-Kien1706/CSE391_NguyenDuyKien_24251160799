@@ -157,4 +157,42 @@ class="hidden md:flex"
 - `hidden` → `display: none` (mobile)
 - `md:flex` → từ ≥768px: `display: flex`
 
----
+---  
+
+
+# PHẦN C — PHÂN TÍCH
+
+## Câu C1 — Tailwind vs CSS thuần
+
+**Component:** Product card (PBT_04 `flexbox.css` / PBT_05 responsive).
+
+| Tiêu chí | CSS thuần | Tailwind (HTML) |
+|----------|-----------|-----------------|
+| **Kích thước file** | HTML gọn + file `.css` riêng (~100+ dòng) | HTML dài (nhiều class) + CSS build nhỏ (chỉ class dùng) |
+| **Maintainability** | Logic tách CSS — dễ đọc HTML | HTML “ồn” class; cần quen utility; đổi style = sửa class trực tiếp |
+| **Reusability** | Class BEM/component tái dùng | Lặp chuỗi class; gom bằng `@apply` trong build hoặc component framework (Vue/React) |
+
+**`@apply`:** Trong file CSS build Tailwind, gom utilities thành class semantic:
+
+```css
+@layer components {
+  .card-product {
+    @apply rounded-lg shadow-md hover:shadow-xl transition-shadow;
+  }
+}
+```
+
+## Câu C2 — Performance
+
+### 1. HTML dài nhưng CSS output nhỏ hơn Bootstrap?
+
+Bootstrap ship **toàn bộ** grid, components, utilities (~200KB+ minified). Tailwind **JIT/Purge** chỉ giữ class **thực sự xuất hiện** trong HTML/JS → file CSS cuối thường **vài KB–vài chục KB**.
+
+### 2. PurgeCSS / Tailwind JIT
+
+Quét source (HTML, JSX, Vue…) → chỉ **generate CSS cho class tìm thấy**. Loại bỏ hàng nghìn utility không dùng (`bg-fuchsia-900`, `mt-96`, …).
+
+### 3. Khi KHÔNG nên dùng Tailwind (2 tình huống)
+
+1. **Email templates** — hỗ trợ utility class kém, cần inline CSS cổ điển.
+2. **Dự án bắt buộc design system riêng phức tạp** với component API chặt — team đã có hệ thống SCSS/BEM lớn, migrate Tailwind tốn kém hơn lợi ích.
