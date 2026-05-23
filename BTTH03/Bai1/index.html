@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sinh viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>HỆ THỐNG QUẢN LÝ SINH VIÊN</h1>
+
+        <!-- Thông báo -->
+        <div id="message"></div>
+
+        <!-- Khu vực điều khiển -->
+        <div class="top-bar">
+            <button id="btnAdd">+ Thêm sinh viên</button>
+        </div>
+
+        <!-- Thống kê -->
+        <div class="statistics">
+            <div>
+                Tổng sinh viên:
+                <span id="totalStudents">0</span>
+            </div>
+
+            <div>
+                Điểm trung bình lớp:
+                <span id="avgScore">0</span>
+            </div>
+        </div>
+
+        <!-- Bảng dữ liệu -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã SV</th>
+                    <th>Họ tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Lớp</th>
+                    <th>Điểm TB</th>
+                    <th>Email</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentTableBody">
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="studentModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 id="modalTitle">Thêm sinh viên</h2>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+
+            <form id="studentForm">
+
+                <div class="form-group">
+                    <label>Mã sinh viên</label>
+                    <input type="text" id="studentId">
+                    <small class="error" id="errorId"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="fullName">
+                    <small class="error" id="errorName"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày sinh</label>
+                    <input type="date" id="birthDate">
+                    <small class="error" id="errorBirth"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Lớp học</label>
+                    <input type="text" id="className">
+                    <small class="error" id="errorClass"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Điểm trung bình</label>
+                    <input type="number" id="averageScore" step="0.1">
+                    <small class="error" id="errorScore"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email">
+                    <small class="error" id="errorEmail"></small>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" id="submitBtn">
+                        Lưu sinh viên
+                    </button>
+
+                    <button type="button" id="cancelBtn">
+                        Hủy
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

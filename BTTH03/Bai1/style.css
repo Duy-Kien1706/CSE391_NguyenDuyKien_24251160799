@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body{
+    background: #f4f4f4;
+    padding: 30px;
+}
+
+.container{
+    width: 95%;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.top-bar{
+    margin-bottom: 20px;
+}
+
+#btnAdd{
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#btnAdd:hover{
+    background: #0056b3;
+}
+
+.statistics{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+table th,
+table td{
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+table th{
+    background: #007bff;
+    color: white;
+}
+
+.edit-btn{
+    background: orange;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.delete-btn{
+    background: red;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+    background: white;
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close{
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input{
+    width: 100%;
+    padding: 10px;
+}
+
+.form-buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.form-buttons button{
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+}
+
+#submitBtn{
+    background: green;
+}
+
+#cancelBtn{
+    background: gray;
+}
+
+.error{
+    color: red;
+    font-size: 13px;
+}
+
+#message{
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: green;
+}
+
+.empty-row{
+    color: gray;
+}
