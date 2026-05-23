@@ -179,94 +179,7 @@ function closeForm(){
 }
 
 
-// Validate
-function validateForm(){
 
-    clearErrors();
-
-    let isValid = true;
-
-    // Mã sinh viên
-    if(studentId.value.trim() === ""){
-
-        document.getElementById("errorId").innerText =
-            "Không được để trống mã sinh viên";
-
-        isValid = false;
-    }
-
-    // Họ tên
-    if(fullName.value.trim() === ""){
-
-        document.getElementById("errorName").innerText =
-            "Không được để trống họ tên";
-
-        isValid = false;
-    }
-
-    // Ngày sinh
-    if(birthDate.value === ""){
-
-        document.getElementById("errorBirth").innerText =
-            "Vui lòng chọn ngày sinh";
-
-        isValid = false;
-    }
-
-    // Lớp
-    if(className.value.trim() === ""){
-
-        document.getElementById("errorClass").innerText =
-            "Không được để trống lớp";
-
-        isValid = false;
-    }
-
-    // Điểm
-    if(averageScore.value === ""){
-
-        document.getElementById("errorScore").innerText =
-            "Vui lòng nhập điểm";
-
-        isValid = false;
-    }
-    else{
-
-        let score = parseFloat(averageScore.value);
-
-        if(score < 0 || score > 10){
-
-            document.getElementById("errorScore").innerText =
-                "Điểm phải từ 0 đến 10";
-
-            isValid = false;
-        }
-    }
-
-    // Email
-    if(email.value.trim() === ""){
-
-        document.getElementById("errorEmail").innerText =
-            "Không được để trống email";
-
-        isValid = false;
-    }
-    else{
-
-        let emailRegex =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if(!emailRegex.test(email.value)){
-
-            document.getElementById("errorEmail").innerText =
-                "Email không hợp lệ";
-
-            isValid = false;
-        }
-    }
-
-    return isValid;
-}
 
 
 // Xóa lỗi
@@ -286,50 +199,7 @@ function clearErrors(){
 }
 
 
-// Submit form
-studentForm.onsubmit = function(event){
 
-    event.preventDefault();
-
-    if(validateForm() === false){
-
-        return;
-    }
-
-    let student = {
-
-        id: studentId.value,
-        name: fullName.value,
-        birth: birthDate.value,
-        class: className.value,
-        score: averageScore.value,
-        email: email.value
-    };
-
-    // Thêm mới
-    if(editingIndex === -1){
-
-        students.push(student);
-
-        showMessage("Thêm sinh viên thành công");
-    }
-
-    // Cập nhật
-    else{
-
-        students[editingIndex] = student;
-
-        showMessage("Cập nhật sinh viên thành công");
-    }
-
-    saveStudents();
-
-    renderStudents();
-
-    updateStatistics();
-
-    closeForm();
-};
 
 
 // Sửa sinh viên
