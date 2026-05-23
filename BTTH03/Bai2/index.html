@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quản Lý Công Việc Cá Nhân</h1>
+
+        <button id="openModalBtn">+ Thêm Công Việc</button>
+
+        <div class="summary">
+            <div class="box">
+                <h3>Tổng cộng</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="box">
+                <h3>Đã hoàn thành</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="box">
+                <h3>Chưa hoàn thành</h3>
+                <p id="pendingTasks">0</p>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <div id="taskList"></div>
+    </div>
+
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+
+            <h2 id="modalTitle">Thêm Công Việc</h2>
+
+            <form id="taskForm">
+                <input type="text" id="title" placeholder="Tiêu đề công việc">
+
+                <textarea id="description" placeholder="Mô tả ngắn"></textarea>
+
+                <input type="date" id="deadline">
+
+                <select id="priority">
+                    <option value="">-- Chọn mức ưu tiên --</option>
+                    <option value="Cao">Cao</option>
+                    <option value="Trung bình">Trung bình</option>
+                    <option value="Thấp">Thấp</option>
+                </select>
+
+                <button type="submit">Lưu Công Việc</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
