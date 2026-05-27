@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Todo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const { useState } = React;
+
+        function App() {
+
+            const [todos, setTodos] = useState([]);
+
+            const [input, setInput] = useState("");
+
+            function addTodo() {
+
+                if (input.trim() === "") {
+                    return;
+                }
+
+                const newTodo = {
+                    text: input,
+                    completed: false
+                };
+
+                setTodos([...todos, newTodo]);
+
+                setInput("");
+            }
+
+            function toggleTodo(index) {
+
+                const updatedTodos = [...todos];
+
+                updatedTodos[index].completed =
+                    !updatedTodos[index].completed;
+
+                setTodos(updatedTodos);
+            }
+
+            function deleteTodo(index) {
+
+                const updatedTodos =
+                    todos.filter((todo, i) => i !== index);
+
+                setTodos(updatedTodos);
+            }
+
+            return (
+                <div>
+                    <h1>React Todo List</h1>
+
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                    />
+
+                    <button onClick={addTodo}>
+                        Add
+                    </button>
+
+                    <ul>
+
+                        {
+                            todos.map((todo, index) => (
+
+                                <li
+                                    key={index}
+                                    className={
+                                        todo.completed
+                                            ? "completed"
+                                            : ""
+                                    }
+                                >
+                                    {todo.text}
+
+                                    <button
+                                        onClick={() => toggleTodo(index)}
+                                    >
+                                        Toggle
+                                    </button>
+
+                                    <button
+                                        onClick={() => deleteTodo(index)}
+                                    >
+                                        Delete
+                                    </button>
+                                </li>
+                            ))
+                        }
+
+                    </ul>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(
+            document.getElementById("root")
+        );
+
+        root.render(<App />);
+
+    </script>
+
+</body>
+</html>
