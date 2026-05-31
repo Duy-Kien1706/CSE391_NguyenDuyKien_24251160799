@@ -362,3 +362,4 @@ Flexbox mặc định cho phép item bị co lại.
 ![Sau](./screenshots/C2/Loi3After.png)
 
 
+ 

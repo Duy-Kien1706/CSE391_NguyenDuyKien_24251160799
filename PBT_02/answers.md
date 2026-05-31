@@ -300,3 +300,4 @@ Lý do:
 => Kết luận: Luôn phải validate lại ở backend (server-side validation)
 
 # Link video thuyết trình: https://drive.google.com/file/d/14ZsNcpQBMFv8QnAY1ETMMzktLnoHCuF2/view?usp=sharing
+ 
