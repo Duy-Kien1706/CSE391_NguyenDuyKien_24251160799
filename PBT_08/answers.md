@@ -600,4 +600,298 @@ Spread Object:
 
 - Copy tầng đầu.
 - Không copy sâu (deep copy).
-- Object lồng bên trong vẫn dùng chung tham chiếu.
+- Object lồng bên trong vẫn dùng chung tham chiếu.    
+
+
+
+# PHẦN C — SUY LUẬN
+
+---
+
+# Câu C1 (10đ) — Refactor Code
+
+## Lời giải
+
+```js
+const processOrders = orders =>
+    orders
+        .filter(({ status, total }) => status === "completed" && total > 100000)
+        .map(({ id, customer, total }) => ({
+            id,
+            customer,
+            total,
+            discount: total * 0.1,
+            finalTotal: total * 0.9
+        }))
+        .sort((a, b) => b.finalTotal - a.finalTotal);
+```
+
+## Giải thích
+
+### filter()
+Chỉ lấy các đơn hàng:
+
+- `status === "completed"`
+- `total > 100000`
+
+```js
+.filter(({ status, total }) =>
+    status === "completed" && total > 100000
+)
+```
+
+---
+
+### map()
+Tạo object mới cho mỗi đơn hàng.
+
+```js
+.map(({ id, customer, total }) => ({
+    id,
+    customer,
+    total,
+    discount: total * 0.1,
+    finalTotal: total * 0.9
+}))
+```
+
+Sử dụng:
+
+- Arrow Function
+- Object Literal
+- Destructuring
+
+---
+
+### sort()
+
+Sắp xếp giảm dần theo `finalTotal`.
+
+```js
+.sort((a, b) => b.finalTotal - a.finalTotal)
+```
+
+---
+
+# Ví dụ
+
+```js
+const orders = [
+    {
+        id: 1,
+        customer: "An",
+        total: 200000,
+        status: "completed"
+    },
+    {
+        id: 2,
+        customer: "Bình",
+        total: 90000,
+        status: "completed"
+    },
+    {
+        id: 3,
+        customer: "Cường",
+        total: 500000,
+        status: "completed"
+    }
+];
+
+console.log(processOrders(orders));
+```
+
+### Output
+
+```js
+[
+  {
+    id: 3,
+    customer: 'Cường',
+    total: 500000,
+    discount: 50000,
+    finalTotal: 450000
+  },
+  {
+    id: 1,
+    customer: 'An',
+    total: 200000,
+    discount: 20000,
+    finalTotal: 180000
+  }
+]
+```
+
+---
+
+# Câu C2 (10đ) — Thiết kế API miniArray
+
+## Lời giải
+
+```js
+const miniArray = {
+    map(arr, fn) {
+        const result = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            result.push(fn(arr[i], i, arr));
+        }
+
+        return result;
+    },
+
+    filter(arr, fn) {
+        const result = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+        }
+
+        return result;
+    },
+
+    reduce(arr, fn, initialValue) {
+        let accumulator = initialValue;
+
+        for (let i = 0; i < arr.length; i++) {
+            accumulator = fn(accumulator, arr[i], i, arr);
+        }
+
+        return accumulator;
+    }
+};
+```
+
+---
+
+## Test
+
+```js
+console.log(
+    miniArray.map([1, 2, 3], x => x * 2)
+);
+// [2,4,6]
+
+console.log(
+    miniArray.filter([1, 2, 3, 4], x => x > 2)
+);
+// [3,4]
+
+console.log(
+    miniArray.reduce(
+        [1, 2, 3, 4],
+        (a, b) => a + b,
+        0
+    )
+);
+// 10
+```
+
+---
+
+## Giải thích
+
+### map()
+
+Duyệt từng phần tử:
+
+```js
+fn(arr[i], i, arr)
+```
+
+Kết quả được đưa vào mảng mới.
+
+Ví dụ:
+
+```js
+miniArray.map([1,2,3], x => x * 2);
+```
+
+→
+
+```js
+[2,4,6]
+```
+
+---
+
+### filter()
+
+Chỉ thêm phần tử nếu callback trả về `true`.
+
+```js
+if (fn(arr[i], i, arr))
+```
+
+Ví dụ:
+
+```js
+miniArray.filter(
+    [1,2,3,4],
+    x => x > 2
+);
+```
+
+→
+
+```js
+[3,4]
+```
+
+---
+
+### reduce()
+
+Biến `accumulator` lưu kết quả tích lũy.
+
+```js
+accumulator = fn(
+    accumulator,
+    arr[i],
+    i,
+    arr
+);
+```
+
+Ví dụ:
+
+```js
+miniArray.reduce(
+    [1,2,3,4],
+    (a,b) => a + b,
+    0
+);
+```
+
+Quá trình:
+
+```js
+0 + 1 = 1
+1 + 2 = 3
+3 + 3 = 6
+6 + 4 = 10
+```
+
+Kết quả:
+
+```js
+10
+```
+
+---
+
+# Tổng kết
+
+Các kiến thức sử dụng:
+
+- Arrow Function
+- Destructuring
+- Object Literal
+- filter()
+- map()
+- sort()
+- Vòng lặp for
+- Callback Function
+- Higher-Order Function
+- Tự cài đặt map/filter/reduce

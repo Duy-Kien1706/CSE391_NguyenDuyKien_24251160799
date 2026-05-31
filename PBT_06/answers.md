@@ -196,3 +196,4 @@ Quét source (HTML, JSX, Vue…) → chỉ **generate CSS cho class tìm thấy*
 
 1. **Email templates** — hỗ trợ utility class kém, cần inline CSS cổ điển.
 2. **Dự án bắt buộc design system riêng phức tạp** với component API chặt — team đã có hệ thống SCSS/BEM lớn, migrate Tailwind tốn kém hơn lợi ích.
+ 

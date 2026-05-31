@@ -361,4 +361,4 @@ Browser chỉ:
 - Repaint 1 lần
 
 => Hiệu năng tốt hơn rất nhiều khi thao tác số lượng lớn phần tử.
-
+ 
