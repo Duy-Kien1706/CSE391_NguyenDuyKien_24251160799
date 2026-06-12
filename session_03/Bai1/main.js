@@ -2,7 +2,7 @@ let students = JSON.parse(localStorage.getItem("students")) || [];
 
 let editingIndex = -1;
 
-const btnAdd = document.getElementById("btnAdd");
+ const btnAdd = document.getElementById("btnAdd");
 
 const studentModal = document.getElementById("studentModal");
 
@@ -46,6 +46,11 @@ btnAdd.onclick = function(){
 // Đóng modal
 closeModal.onclick = closeForm;
 cancelBtn.onclick = closeForm;
+
+
+
+
+
 
 
 // Render dữ liệu
